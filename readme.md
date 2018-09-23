@@ -21,7 +21,7 @@ To run via console (from project's root directory):
 
 `java -jar target/trainexercises-1.0-SNAPSHOT.jar`
 
-Please note the default jar deployed is TrainDetailsEx1. To change which .jar is built, simply change the <mainClass> property in the pom.xml to the appropriate main class.
+Please note the default jar deployed is TrainDetailsEx1. To change which .jar is built, simply change the `<mainClass>` property in the pom.xml to the appropriate main class.
 
 ### Extra note:
 
