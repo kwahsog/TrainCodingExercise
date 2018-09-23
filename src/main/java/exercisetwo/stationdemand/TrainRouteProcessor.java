@@ -2,13 +2,16 @@ package exercisetwo.stationdemand;
 
 import java.util.*;
 
-public class TrainRoute {
+/**
+ * Class to process all userinput from TrainDetailsEx2
+ */
+public class TrainRouteProcessor {
 
     private LinkedHashMap<String, List<Station>> trainRoute;
     private List<Station> allStations;
     private List<String> stationsInOrder;
 
-    public TrainRoute() {
+    public TrainRouteProcessor() {
         trainRoute = new LinkedHashMap<>();
         stationsInOrder = new ArrayList<>();
         allStations = new ArrayList<>();
@@ -18,9 +21,12 @@ public class TrainRoute {
         return stationsInOrder;
     }
 
-    public void addStationDetails(String startingStation, String userInput) {
-        //Waterloo
-        //0,400,500,650,450,200
+    /**
+     * Populate internal data structures with station information.
+     * @param startingStation starting station
+     * @param userInput user's input
+     */
+    public void addStationInformation(String startingStation, String userInput) {
         String[] inputArray = userInput.split(",");
         for (int i = 0; i < inputArray.length; i++) {
             Station temp = new Station(startingStation, stationsInOrder.get(i), Integer.parseInt(inputArray[i]));
@@ -29,7 +35,11 @@ public class TrainRoute {
         }
     }
 
-    public void addStationDetails(String userInput) {
+    /**
+     * Store list of initial stations.
+     * @param userInput
+     */
+    public void addInitialStations(String userInput) {
         String[] inputArray = userInput.split(",");
         for (String s : inputArray) {
             stationsInOrder.add(s);
@@ -37,19 +47,18 @@ public class TrainRoute {
         }
     }
 
+    /**
+     * Convert internal data structures to 2d array and print to console.
+     */
     public void printStationMatrix() {
 
-        //convert inner LinkedHashMap to 2d array
-
         String[][] tempArray = new String[trainRoute.size() + 1][trainRoute.size() + 1];
-
         tempArray[0][0] = "Destination/Origin";
         for (int j = 0; j < stationsInOrder.size(); j++) {
             tempArray[0][j+1] = stationsInOrder.get(j);
         }
         int i = 1;
         for (String key : trainRoute.keySet()) {
-            //int j = 0;
             tempArray[i][0] = key;
             List<Station> allStations = trainRoute.get(key);
             for (int k = 0; k < allStations.size(); k++) {
@@ -60,6 +69,9 @@ public class TrainRoute {
         System.out.println(Arrays.deepToString(tempArray).replace("], ", "]\n"));
     }
 
+    /**
+     * Print max stations with the max passenger demand.
+     */
     public void printMaxDemand() {
 
         List<Station> maxDemandStations = new ArrayList<>();
@@ -76,6 +88,10 @@ public class TrainRoute {
         }
     }
 
+    /**
+     * Print all stations with a demand greater than the user's input.
+     * @param userInput
+     */
     public void printMinimumDemand(String userInput) {
         Integer lowerLimit = Integer.parseInt(userInput);
         allStations.sort(Comparator.comparing(Station::getPassengerDemand, Comparator.reverseOrder()));
@@ -95,6 +111,5 @@ public class TrainRoute {
             }
         }
     }
-
 
 }
