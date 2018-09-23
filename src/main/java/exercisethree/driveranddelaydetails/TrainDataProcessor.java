@@ -92,7 +92,6 @@ public class TrainDataProcessor {
 
             j = i;
             while (!found) {
-
                 if( (j == loadedInput.size() - 1) || (!loadedInput.get(j).getTrainId().equals(loadedInput.get(j+1).getTrainId())
                         || !(loadedInput.get(j).getDriverName().equals(loadedInput.get(j+1).getDriverName())))) {
 
