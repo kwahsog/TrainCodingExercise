@@ -1,4 +1,4 @@
-# Various train related programming exercises
+# Train coding exercise
 
 Coding exercise, implementing solutions to various train problems. Please see the provided .doc for full specifications. 
 
