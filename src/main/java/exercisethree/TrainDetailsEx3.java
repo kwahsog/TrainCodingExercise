@@ -6,6 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Main class to provide solution for Exercise 3.
+ * Simply store all the data to the database.
+ */
 @SpringBootApplication
 public class TrainDetailsEx3 implements CommandLineRunner {
 
