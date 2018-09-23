@@ -52,11 +52,11 @@ public class Train {
     }
 
     public String toStringMaxSpeedRequest() {
-        return "The max speed for this train is: " + this.getSpeedKMPH();
+        return "The max speed for this train is: " + this.getSpeedKMPH() + " (KMPH)";
     }
 
     public String toStringTrainAndEnergyRequest() {
-        return "The best train type for this gear is: " + this.getTrainType() + " with the energy consumption of: " + this.getEnergyKHW();
+        return "The best train type for this gear is: " + this.getTrainType() + " with the energy consumption of: " + this.getEnergyKHW() + " (KWH)";
     }
 
     @Override

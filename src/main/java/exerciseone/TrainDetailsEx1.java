@@ -10,18 +10,18 @@ import java.util.Scanner;
 public class TrainDetailsEx1 {
 
     /**
-     * Load data in from csv file and open console for user input.
+     * Load data in from text file and open console for user input.
      * @param args ignored.
      */
     public static void main (String args[]) {
 
-        String csvFile = "src/main/resources/data/TrainDetailsFeed.txt";
+        String inputFile = "src/main/resources/data/TrainDetailsFeed.txt";
         TrainRequestProcessor trainRequestProcessor = new TrainRequestProcessor();
-        trainRequestProcessor.loadContent(csvFile);
+        trainRequestProcessor.loadContent(inputFile);
 
         String userInput;
 
-        System.out.println("Loading resources");
+        System.out.println("Loading resources...");
         System.out.println("Enter the train type, followed by a comma, followed by the gear number to return the maximum speed for a train.");
         System.out.println("For example: 156A,1");
         System.out.println("Enter the gear type to return the best train type with the lowest energy consumption.");

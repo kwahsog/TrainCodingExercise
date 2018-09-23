@@ -71,12 +71,14 @@ public class TrainRequestProcessor {
      * @return enum representing the type of the users input.
      */
     private CommandType getCommandType(String userInput) {
-        //todo rework:
         if (userInput.contains(",")) {
             return CommandType.MAXSPEED;
-        } else if (userInput.contains("1") || userInput.contains("2")) {
+        }
+        int temp = 0;
+        try {
+            temp = Integer.parseInt(userInput);
             return CommandType.TRAINTYPEANDENERGY;
-        } else {
+        } catch (NumberFormatException ex) {
             return CommandType.INVALID;
         }
     }
@@ -135,18 +137,17 @@ public class TrainRequestProcessor {
      */
     private String processTrainAndEnergyRequest(String userInput) {
         Train bestTrain = null;
-        //userInput will be 1 OR 2 find best train
         int gear = 0;
         try {
             gear = Integer.parseInt(userInput);
         } catch (NumberFormatException e) {
-
+            return "No details found";
         }
         for (Train train : trains) {
             if (train.getGear() == gear) {
                 if (bestTrain == null) {
                     bestTrain = train;
-                } else if (train.getEnergyKHW() > bestTrain.getEnergyKHW()) {
+                } else if (train.getEnergyKHW() < bestTrain.getEnergyKHW()) {
                     bestTrain = train;
                 }
             }

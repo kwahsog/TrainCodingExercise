@@ -12,12 +12,12 @@ public class TrainTest {
     @Test
     void toStringMaxSpeedRequestTest() {
         Train trainOne = new Train("156A", 1, 10 ,50);
-        assertEquals("The max speed for this train is: 10" ,trainOne.toStringMaxSpeedRequest());
+        assertEquals("The max speed for this train is: 10 (KMPH)" ,trainOne.toStringMaxSpeedRequest());
     }
 
     @Test
     void toStringTrainAndEnergyRequestTest() {
         Train trainOne = new Train("156A", 1, 10 ,50);
-        assertEquals("The best train type for this gear is: 156A with the energy consumption of: 50", trainOne.toStringTrainAndEnergyRequest());
+        assertEquals("The best train type for this gear is: 156A with the energy consumption of: 50 (KWH)", trainOne.toStringTrainAndEnergyRequest());
     }
 }

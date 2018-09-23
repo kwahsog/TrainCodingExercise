@@ -59,15 +59,15 @@ public class TrainRequestProcessorTest {
         String testFile = "src/test/resources/data/TrainDetailsFeed.txt";
         trainRequestProcessor.loadContent(testFile);
 
-        assertEquals("The max speed for this train is: 20", trainRequestProcessor.processInput("156A,1"));
-        assertEquals("The max speed for this train is: 40", trainRequestProcessor.processInput("156A,2"));
-        assertEquals("The max speed for this train is: 30", trainRequestProcessor.processInput("157P,1"));
-        assertEquals("The max speed for this train is: 50", trainRequestProcessor.processInput("157P,2"));
-        assertEquals("The max speed for this train is: 40", trainRequestProcessor.processInput("201V,1"));
-        assertEquals("The max speed for this train is: 45", trainRequestProcessor.processInput("201V,2"));
+        assertEquals("The max speed for this train is: 20 (KMPH)", trainRequestProcessor.processInput("156A,1"));
+        assertEquals("The max speed for this train is: 40 (KMPH)", trainRequestProcessor.processInput("156A,2"));
+        assertEquals("The max speed for this train is: 30 (KMPH)", trainRequestProcessor.processInput("157P,1"));
+        assertEquals("The max speed for this train is: 50 (KMPH)", trainRequestProcessor.processInput("157P,2"));
+        assertEquals("The max speed for this train is: 40 (KMPH)", trainRequestProcessor.processInput("201V,1"));
+        assertEquals("The max speed for this train is: 45 (KMPH)", trainRequestProcessor.processInput("201V,2"));
 
-        assertEquals("The best train type for this gear is: 156A with the energy consumption of: 100", trainRequestProcessor.processInput("1"));
-        assertEquals("The best train type for this gear is: 201V with the energy consumption of: 200", trainRequestProcessor.processInput("2"));
+        assertEquals("The best train type for this gear is: 157P with the energy consumption of: 40 (KWH)", trainRequestProcessor.processInput("1"));
+        assertEquals("The best train type for this gear is: 156A with the energy consumption of: 80 (KWH)", trainRequestProcessor.processInput("2"));
 
 
         assertEquals("No details found", trainRequestProcessor.processInput("3"));
